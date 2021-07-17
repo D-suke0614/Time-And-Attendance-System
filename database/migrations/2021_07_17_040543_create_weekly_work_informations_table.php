@@ -14,8 +14,13 @@ class CreateWeeklyWorkInformationsTable extends Migration
     public function up()
     {
         Schema::create('weekly_work_informations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->date('week_start_date');
+            $table->date('week_end_date');
+            $table->time('weekly_operating_time')->default(0);
             $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
