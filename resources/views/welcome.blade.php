@@ -65,8 +65,6 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            
-
             <div class="content">
                 <div class="title m-b-md">
                     Time & Attendance System
@@ -85,9 +83,15 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-                </div>
+                @endif
             </div>
+            <div class="top-right links">
+                <a href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">シフトの</a>
+                <a href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">面談の</a>
+                <a href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">フォルダ</a>
+            <div>
         </div>
     </body>
 </html>
+
+
