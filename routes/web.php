@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/startTimeModify', function () {
+    return view('startTimeModify');
+});
+
+Route::get('/endTimeModify', function () {
+    return view('endTimeModify');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
