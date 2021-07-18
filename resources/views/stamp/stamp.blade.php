@@ -22,12 +22,8 @@
             <form action="{{ route('stamp.store') }}" method="POST">
                 @csrf
                 {{-- <input type="hidden" id="time" name="time"> --}}
-                <button type="submit" value="勤務開始" class="stamp">勤務開始</button>
-            </form>
-
-            <form action="{{ route('stamp.update') }}" method="POST">
-                @csrf
-                <button type="submit" value="勤務開始" class="stamp">退勤する</button>
+                <button type="submit" name="start" value="勤務開始" class="stamp">勤務開始</button>
+                <button type="submit" name="end" value="勤務終了" class="stamp">退勤する</button>
             </form>
         </div>
     </main>

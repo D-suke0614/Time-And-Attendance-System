@@ -31,7 +31,7 @@ Route::get('/stampEnd', function () {
 
 Route::post('/stamp', 'Work_timeController@store')->name('stamp.store');
 // Route::post('/stampEnd', 'End_timeController@store')->name('stampEnd.store');
-Route::put('/stamp', 'Work_timeController@update')->name('stamp.update');
+// Route::put('/stamp', 'Work_timeController@update')->name('stamp.update');
 
 
 Route::get('/startTimeModify', function () {
