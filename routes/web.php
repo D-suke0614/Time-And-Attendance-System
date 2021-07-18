@@ -54,3 +54,7 @@ Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

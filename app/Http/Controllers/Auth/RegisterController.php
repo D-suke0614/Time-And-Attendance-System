@@ -9,8 +9,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-use Encore\Admin\Facades\Admin;
-
 class RegisterController extends Controller
 {
     /*
