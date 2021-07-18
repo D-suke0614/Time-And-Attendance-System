@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/stamp', function () {
+    return view('stamp.stamp');
+});
+
+// Route::post('/stamp', 'StampController@store')->name('stamp.store');
+// Route::resource('stamp', 'StampController');
+
+Route::post('/stamp', 'Work_timeController@store')->name('stamp.store');
