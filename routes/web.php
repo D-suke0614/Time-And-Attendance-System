@@ -48,8 +48,8 @@ Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
 // 管理者のみ新規登録ができる
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
-   Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-   Route::post('register', 'Auth\RegisterController@register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
