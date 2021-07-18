@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+}
+
+.container {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+#stamp {
+  padding: 20px;
+  font-size: 20px;
+}
