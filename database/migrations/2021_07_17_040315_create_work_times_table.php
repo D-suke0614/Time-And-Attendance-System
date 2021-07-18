@@ -17,7 +17,7 @@ class CreateWorkTimesTable extends Migration
             $table->increments('id');
             $table->datetime('start_time');
             $table->datetime('modify_start_time')->nullable(false)->change();
-            $table->datetime('end_time')->nullable(false)->change();
+            $table->datetime('end_time')->nullable();
             $table->datetime('modify_end_time')->nullable(false)->change();
             $table->time('work_time')->default(0);
             $table->integer('work_number')->default(0);
