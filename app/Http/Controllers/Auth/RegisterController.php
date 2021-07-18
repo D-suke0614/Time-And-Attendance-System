@@ -9,8 +9,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-use Encore\Admin\Facades\Admin;
-
 class RegisterController extends Controller
 {
     /*
@@ -71,14 +69,5 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        $user=User::all();
-
-        $admin= new Admin;
-
-        $admin->id = $user->id;
-        $admin->name = $user->name;
-        $admin->email = $user->email;
-        $admin->password = $user->password;
     }
 }
