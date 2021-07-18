@@ -26,6 +26,20 @@ class Work_timeController extends Controller
             $end_time = Carbon::now();
             $work_time->end_time = $end_time;
             $work_time->save();
+
+
+            // 開始時間と終了時間の差分
+            $start_time = $work_time->start_time;
+            $start = strtotime($start_time);
+            $end = strtotime($end_time);
+            // dd($end - $start);
+
+            $time = $end - $start;
+            $hours = round( $time / 3600);
+            $hour = intval($hours);
+            $minutes = floor( ( $time / 60 ) % 60 );
+            $seconds = $time % 60;
+            dd($hours, $minutes, $seconds);
         }
         return redirect('/stamp');
 
