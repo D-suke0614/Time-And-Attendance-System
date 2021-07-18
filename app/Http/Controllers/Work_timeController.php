@@ -21,7 +21,7 @@ class Work_timeController extends Controller
 
         // $work_time->save();
 
-        Work_time::insert(array('start_time'=>Carbon::now(), 'user_id'=>1));
+        Work_time::insert(array('start_time'=>Carbon::now(), 'user_id'=>6));
         // Work_time::insert(array('end_time'=>Carbon::now(), 'user_id'=>1));
 
         //リダイレクト処理
@@ -31,7 +31,7 @@ class Work_timeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $work_time = Work_time::find(24);
+        $work_time = Work_time::find(31);
         $work_time -> end_time = Carbon::now();
     }
 }
