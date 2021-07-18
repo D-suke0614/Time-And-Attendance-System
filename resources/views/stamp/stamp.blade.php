@@ -23,8 +23,6 @@
                 @csrf
                 <input type="hidden" id="time" name="time">
                 <button type="submit" value="勤務開始" id="stamp" onclick="time()">勤務開始</button>
-                <input type="date">
-                <input type="time">
             </form>
         </div>
     </main>
