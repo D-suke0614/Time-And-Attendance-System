@@ -22,10 +22,17 @@ Route::get('/stamp', function () {
     return view('stamp.stamp');
 });
 
+Route::get('/stampEnd', function () {
+    return view('stamp.stamp');
+});
+
 // Route::post('/stamp', 'StampController@store')->name('stamp.store');
 // Route::resource('stamp', 'StampController');
 
 Route::post('/stamp', 'Work_timeController@store')->name('stamp.store');
+// Route::post('/stampEnd', 'End_timeController@store')->name('stampEnd.store');
+Route::put('/stamp', 'Work_timeController@update')->name('stamp.update');
+
 
 Route::get('/startTimeModify', function () {
     return view('startTimeModify');
