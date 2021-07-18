@@ -33,13 +33,12 @@ class Work_timeController extends Controller
             $start = strtotime($start_time);
             $end = strtotime($end_time);
             // dd($end - $start);
-
             $time = $end - $start;
-            $hours = round( $time / 3600);
-            $hour = intval($hours);
-            $minutes = floor( ( $time / 60 ) % 60 );
-            $seconds = $time % 60;
-            dd($hours, $minutes, $seconds);
+            $all_time = gmdate('H:i:s', $time);
+            // dd($all_time);
+            $work_time = Work_time::where('user_id', $login_user_id)->latest('created_at')->first();
+            $work_time->work_time = $all_time;
+            $work_time->save();
         }
         return redirect('/stamp');
 
