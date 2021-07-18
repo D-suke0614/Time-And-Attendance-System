@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/stamp', function () {
     return view('stamp.stamp');
 });
@@ -25,3 +26,16 @@ Route::get('/stamp', function () {
 // Route::resource('stamp', 'StampController');
 
 Route::post('/stamp', 'Work_timeController@store')->name('stamp.store');
+
+Route::get('/startTimeModify', function () {
+    return view('startTimeModify');
+});
+
+Route::get('/endTimeModify', function () {
+    return view('endTimeModify');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

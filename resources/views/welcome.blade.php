@@ -65,8 +65,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
+            <div class="content">
+                <div class="title m-b-md">
+                    Time & Attendance System
+                </div>
+
+                <div class="links">
+                    <a href="{{url('/admin')}}">ADMIN</a>
+                    @if (Route::has('login'))
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -77,24 +83,15 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @endif
             </div>
+            <div class="top-right links">
+                <a href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">シフトの</a>
+                <a href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">面談の</a>
+                <a href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">フォルダ</a>
+            <div>
         </div>
     </body>
 </html>
+
+
