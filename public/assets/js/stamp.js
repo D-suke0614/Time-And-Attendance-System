@@ -28,7 +28,7 @@ function time() {
 
   // document.time.value = Yr + Mn + Dt + Hr + Mi + Se ;
   document.getElementById('time').value = nowTime;
-  // console.log(nowTime);
+  console.log(nowTime);
 
   // window.setTimeout("time()",1000);
 }
