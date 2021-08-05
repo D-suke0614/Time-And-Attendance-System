@@ -17,7 +17,19 @@ class UserTableSeeder extends Seeder
                 'email' => 'SeedTech@gmail.com',
                 'password' => bcrypt('st210601'),
                 'role' => 1,
-            ]
+            ],
+            [
+                'name' => 'テスト',
+                'email' => 'test@gmail.com',
+                'password' => bcrypt('test1234'),
+                'role' => 0,
+            ],
+            [
+                'name' => 'テスト2',
+                'email' => 'test2@gmail.com',
+                'password' => bcrypt('test1234'),
+                'role' => 0,
+            ],
         ]);
     }
 }
