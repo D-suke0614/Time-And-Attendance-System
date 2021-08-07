@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('./assets/css/stamp.css') }}">
     <script src="{{ asset('./assets/js/stamp.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <title>Stamp</title>
+    <title>Seed Box Stamp</title>
 </head>
 
 {{-- 全画面共通のcssはapp.cssへ記載 --}}
@@ -17,7 +17,7 @@
     <header>
         <div class="top-left">
             <h1>
-                Seed Tech Mentor
+                Seed Box
             </h1>
         </div>
         <div class="top-right">
@@ -52,7 +52,7 @@
     </main>
 
     <footer>
-        <p class="copy_right">Seed Tech Mentor © 2021 - </p>
+        <p class="copy_right">Seed Box © 2021 - </p>
     </footer>
 
 </body>

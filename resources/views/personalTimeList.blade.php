@@ -13,7 +13,7 @@
   <header>
     <div class="top-left">
       <h1>
-          Seed Tech Mentor
+          Seed Box
       </h1>
     </div>
     <div class="top-right">
@@ -49,7 +49,7 @@
   </div>
 
   <footer>
-    <p class="footer">Seed Tech Mentor © 2021 - </p>
+    <p class="footer">Seed Box © 2021 - </p>
   </footer>
 
 </body>

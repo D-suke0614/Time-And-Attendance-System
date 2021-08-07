@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Seed Tech Mentor</title>
+        <title>Seed Box</title>
         <link rel="stylesheet" href="{{ asset('./assets/css/app.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
         <header>
             <div class="top-left">
                 <h1>
-                    Seed Tech Mentor
+                    Seed Box
                 </h1>
             </div>
             <div class="top-right">
@@ -79,7 +79,7 @@
             <div class="flex-center position-ref">
                 <div class="content">
                     <div class="title m-b-md">
-                        打刻システム
+                        Seed Box
                     </div>
                     <div class="auth_btn">
                         {{-- <a href="{{url('/admin')}}">ADMIN</a> --}}
@@ -104,7 +104,7 @@
             </div>
         </main>
         <footer>
-            <p class="copy_right">Seed Tech Mentor © 2021 - </p>
+            <p class="copy_right">Seed Box © 2021 - </p>
         </footer>
 
     </body>
