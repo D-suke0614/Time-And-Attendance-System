@@ -77,9 +77,14 @@
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ url('/timelist') }}">TimeList</a>
                         <!-- <a href="{{ url('personaltimelist/{id}') }}">PersonalTimeList</a> -->
+                        <!-- @if (Route::has('register')) -->
+                            <!-- @can('admin-higher')
+                                <a href="{{ route('register') }}">Register</a>
+                            @endcan -->
+                        <!-- @endif -->
                     @else
                         <a href="{{ route('login') }}">Login</a>
-
+                        <a href="{{ route('register') }}">Register</a>
                         <!-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif -->
