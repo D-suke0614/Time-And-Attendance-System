@@ -63,13 +63,13 @@
                 </h1>
             </div>
             <div class="top-right">
-                <a class="links" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
+                <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
                     Work Schedule
                 </a>
-                <a class="links" href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">
+                <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">
                     Interview Sheet
                 </a>
-                <a class="links" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
+                <a class="links" target="_blank" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
                     Google Drive
                 </a>
             <div>
@@ -86,7 +86,7 @@
                         @if (Route::has('login'))
                         @auth
                             <a class="links" href="{{ url('/stamp') }}">Stamp</a>
-                            <a class="links" href="{{ url('/timelist') }}">TimeList</a>
+                            <a class="links" target="_blank" href="{{ url('/timelist') }}">TimeList</a>
                         @else
                             <a class="links" href="{{ route('login') }}">Login</a>
 
