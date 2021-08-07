@@ -1,5 +1,8 @@
 .title {
+  margin-top: 13vh;
   text-align: center;
+  color: #636b6f;
+  font-size: 60px;
 }
 
 .container {
@@ -8,8 +11,19 @@
 }
 
 .stamp {
-  padding: 20px;
+  padding: 25px;
   font-size: 20px;
+  margin-right: 20px;
+  background-color: #ffffff;
+  border: 2px solid #636b6f;
+  border-radius: 5%;
+  color: #636b6f;
+}
+
+.stamp:hover {
+  cursor: pointer;
+  color: black;
+  border: 2px solid black;
 }
 
 .hiddenStamp {
