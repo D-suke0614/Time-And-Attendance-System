@@ -75,6 +75,8 @@
                     @if (Route::has('login'))
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/timelist') }}">TimeList</a>
+                        <!-- <a href="{{ url('personaltimelist/{id}') }}">PersonalTimeList</a> -->
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

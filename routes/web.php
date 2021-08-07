@@ -31,6 +31,10 @@ Route::get('/stampEnd', function () {
     return view('stamp.stamp');
 });
 
+// Route::get('/timelist', function () {
+//     return view('timeList');
+// });
+
 // Route::post('/stamp', 'StampController@store')->name('stamp.store');
 // Route::resource('stamp', 'StampController');
 
@@ -70,3 +74,11 @@ Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/timelist', 'Work_timeController@showTimeList')->name('timelist.index');
+Route::get('/personaltimelist/{id}', 'Work_timeController@showPersonalTimeList')->name('timelist.indexPersonal');
+
