@@ -49,17 +49,22 @@ class Work_timeController extends Controller
     {
         $times = Work_time::all();
         // dd($times);
-        // $login_user_id = Auth::id();
-        // dd($login_user_id);
-        $users = User::where('role', 0)->get();
+        // $dates = $times->start_time;
+        // $users = User::where('role', 0)->get();
         // dd($users);
-        return view('timeList', ['times'=>$times, 'users'=>$users]);
+        $login_user_id = Auth::id();
+        $user = User::where('id', $login_user_id)->first();
+        return view('timeList', ['times'=>$times, 'user'=>$user]);
     }
 
     public function showPersonalTimeList($id)
     {
         $times = Work_time::where('user_id', $id)->get();
         // dd($times);
-        return view('personalTimeList', ['times'=>$times]);
+        $login_user_id = Auth::id();
+        // dd($login_user_id);
+        $user = User::where('id', $login_user_id)->first();
+        // dd($user);
+        return view('personalTimeList', ['times'=>$times, 'user'=>$user]);
     }
 }
