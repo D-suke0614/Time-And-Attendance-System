@@ -12,6 +12,7 @@
 <body>
   <header>
     <div class="top-left">
+      <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
       <h1>
           Seed Box
       </h1>
