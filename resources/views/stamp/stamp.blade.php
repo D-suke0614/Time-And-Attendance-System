@@ -19,11 +19,12 @@
 
     <main>
         <div class="container">
+            <button class="stamp" onclick="checkWorkStart()">勤務するよー</button>
+            <button class="stamp" onclick="checkWorkEnd()">今日は終わり</button>
             <form action="{{ route('stamp.store') }}" method="POST">
                 @csrf
-                {{-- <input type="hidden" id="time" name="time"> --}}
-                <button type="submit" name="start" value="勤務開始" class="stamp">勤務開始</button>
-                <button type="submit" name="end" value="勤務終了" class="stamp">退勤する</button>
+                <button id="startWork" type="submit" name="start" value="勤務開始" class="hiddenStamp" onclick="workStart()"></button>
+                <button id="endWork" type="submit" name="end" value="勤務終了" class="hiddenStamp"></button>
             </form>
         </div>
     </main>

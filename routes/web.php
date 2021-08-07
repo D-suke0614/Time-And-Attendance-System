@@ -22,6 +22,11 @@ Route::get('/stamp', function () {
     return view('stamp.stamp');
 });
 
+
+Route::get('/check', function () {
+    return view('stamp.check');
+});
+
 Route::get('/stampEnd', function () {
     return view('stamp.stamp');
 });
@@ -29,7 +34,12 @@ Route::get('/stampEnd', function () {
 // Route::post('/stamp', 'StampController@store')->name('stamp.store');
 // Route::resource('stamp', 'StampController');
 
+// 勤務開始・退勤時
 Route::post('/stamp', 'Work_timeController@store')->name('stamp.store');
+
+// 退勤が押されず、勤務開始が連続して押された時のRoute
+Route::post('/check', 'CheckController@store')->name('stamp.check');
+
 // Route::post('/stampEnd', 'End_timeController@store')->name('stampEnd.store');
 // Route::put('/stamp', 'Work_timeController@update')->name('stamp.update');
 
@@ -57,6 +67,6 @@ Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
- });
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
