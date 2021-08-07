@@ -85,6 +85,7 @@
                         {{-- <a href="{{url('/admin')}}">ADMIN</a> --}}
                         @if (Route::has('login'))
                         @auth
+                            <!-- <a href="{{ route('register') }}">Register</a> -->
                             <a class="links" href="{{ url('/stamp') }}">Stamp</a>
                             <a class="links" target="_blank" href="{{ url('/timelist') }}">TimeList</a>
                         @else
@@ -94,6 +95,9 @@
                                 <a href="{{ route('register') }}">Register</a>
                             @endif -->
                         @endauth
+                        @can('admin-higher')
+                            <a href="{{ route('register') }}">Register</a>
+                        @endcan
                     </div>
                     @endif
                 </div>

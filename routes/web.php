@@ -68,7 +68,7 @@ Route::get('/endTimeModify', function () {
 // // Route::post('register', 'Auth\RegisterController@register')->middleware('can:admin-higher');
 
 // // 管理者のみ新規登録ができる
-// Route::group(['prefix' => 'user', 'middleware' => ['auth', 'can:admin-higher']], function () {
+// Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 //     Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 //     Route::post('/register', 'Auth\RegisterController@register');
 // });
@@ -77,7 +77,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/timelist', 'Work_timeController@showTimeList')->name('timelist.index');
 Route::get('/personaltimelist/{id}', 'Work_timeController@showPersonalTimeList')->name('timelist.indexPersonal');
