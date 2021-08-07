@@ -19,6 +19,15 @@
                 height: 100vh;
                 margin: 0;
             }
+            .top-left {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .logo {
+                height: 50px;
+                margin-right: 20px;
+            }
 
             .flex-center {
                 align-items: center;
@@ -58,6 +67,7 @@
     <body>
         <header>
             <div class="top-left">
+                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
                 <h1>
                     Seed Box
                 </h1>
