@@ -23,7 +23,11 @@
     <tr>
       <td scope="row">{{ $time->start_time->format('Y/m/d') }}</td>
       <td>{{ $time->start_time->format('H:i:s') }}</td>
-      <td>{{ $time->end_time->format('H:i:s') }}</td>
+      @if($time->end_time == null)
+        <td>退勤記録なし</td>
+      @else
+        <td>{{ $time->end_time->format('H:i:s') }}</td>
+      @endif
       <td>{{ $time->work_time }}</td>
     </tr>
     @endforeach

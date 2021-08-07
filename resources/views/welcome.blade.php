@@ -81,7 +81,6 @@
                     <div class="title m-b-md">
                         打刻システム
                     </div>
-
                     <div class="auth_btn">
                         {{-- <a href="{{url('/admin')}}">ADMIN</a> --}}
                         @if (Route::has('login'))
