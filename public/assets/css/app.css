@@ -5,5 +5,48 @@
 
 header {
   height: 10vh;
-  background-color: beige;
+  width: 100vw;
+  color: #636b6f;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #636b6f;
+  padding-bottom: 0.1rem;
+}
+
+.top-left {
+  width: 40vw;
+}
+
+.top-right {
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.links {
+  color: #636b6f;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  /* padding: 0 5%; */
+}
+
+.links:hover {
+  border-bottom: 1px solid #636b6f;
+}
+
+
+
+footer {
+  height: 5vh;
+  width: 100vw;
+  color: #636b6f;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

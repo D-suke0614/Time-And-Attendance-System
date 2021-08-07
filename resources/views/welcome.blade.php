@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
+        <title>Seed Tech Mentor</title>
+        <link rel="stylesheet" href="{{ asset('./assets/css/app.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
@@ -20,10 +20,6 @@
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
-
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -31,27 +27,23 @@
             }
 
             .position-ref {
+                margin-top: 13vw;
                 position: relative;
             }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
             .content {
                 text-align: center;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 100px;
             }
 
-            .links > a {
+            .auth_btn > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 30px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -59,41 +51,58 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 50px;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    Time & Attendance System
-                </div>
-
-                <div class="links">
-                    <a href="{{url('/admin')}}">ADMIN</a>
-                    @if (Route::has('login'))
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                        <a href="{{ url('/timelist') }}">TimeList</a>
-                        <!-- <a href="{{ url('personaltimelist/{id}') }}">PersonalTimeList</a> -->
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        <!-- @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif -->
-                    @endauth
-                </div>
-                @endif
+        <header>
+            <div class="top-left">
+                <h1>
+                    Seed Tech Mentor
+                </h1>
             </div>
-            <div class="top-right links">
-                <a href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">シフトの</a>
-                <a href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">面談の</a>
-                <a href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">フォルダ</a>
+            <div class="top-right">
+                <a class="links" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
+                    Work Schedule
+                </a>
+                <a class="links" href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">
+                    Interview Sheet
+                </a>
+                <a class="links" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
+                    Google Drive
+                </a>
             <div>
-        </div>
+        </header>
+
+        <main>
+            <div class="flex-center position-ref">
+                <div class="content">
+                    <div class="title m-b-md">
+                        打刻システム
+                    </div>
+
+                    <div class="auth_btn">
+                        {{-- <a href="{{url('/admin')}}">ADMIN</a> --}}
+                        @if (Route::has('login'))
+                        @auth
+                            <a class="links" href="{{ url('/stamp') }}">Stamp</a>
+                            <a class="links" href="{{ url('/timelist') }}">TimeList</a>
+                        @else
+                            <a class="links" href="{{ route('login') }}">Login</a>
+
+                            <!-- @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                            @endif -->
+                        @endauth
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p class="copy_right">Seed Tech Mentor © 2021 - </p>
+        </footer>
+
     </body>
 </html>
-
-
