@@ -33,6 +33,9 @@ header {
   text-decoration: none;
   /* padding: 0 5%; */
 }
+.links:hover {
+  color: #636b6f;
+}
 
 .links:hover {
   border-bottom: 1px solid #636b6f;
@@ -40,7 +43,7 @@ header {
 
 
 
-footer {
+.copy_right {
   height: 5vh;
   width: 100vw;
   color: #636b6f;

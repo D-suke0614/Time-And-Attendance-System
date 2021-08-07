@@ -1,0 +1,12 @@
+.container {
+  margin-top: 5vh;
+}
+
+.footer {
+  height: 5vh;
+  width: 100vw;
+  color: #636b6f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
