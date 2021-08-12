@@ -20,13 +20,17 @@ class Work_timeController extends Controller
         if (Request::get('start')) {
             $work_time = new Work_time;
 
+
             // 退勤が押されず、勤務開始が連続して押された時の処理
             $work_time = Work_time::where('user_id', $login_user_id)->latest('created_at')->first();
-            if ($work_time->end_time === null) {
+            if ($work_time === null) {
+                Work_time::insert(array('start_time'=>Carbon::now(), 'created_at'=>Carbon::now(), 'user_id'=>$login_user_id));
+            } elseif ($work_time->end_time === null) {
                 return redirect('/check');
+            } else {
+                Work_time::insert(array('start_time'=>Carbon::now(), 'created_at'=>Carbon::now(), 'user_id'=>$login_user_id));
             }
-
-            Work_time::insert(array('start_time'=>Carbon::now(), 'created_at'=>Carbon::now(), 'user_id'=>$login_user_id));
+            
         } elseif (Request::get('end')) {
             $work_time = Work_time::where('user_id', $login_user_id)->latest('created_at')->first();
 

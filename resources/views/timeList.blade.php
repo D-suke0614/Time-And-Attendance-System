@@ -12,12 +12,15 @@
 <body>
   <header>
     <div class="top-left">
-      <h1>
-          Seed Tech Mentor
-      </h1>
-    </div>
+            <a class="top-left-button" href="{{url('/')}}">
+                <img class="logo" src="{{ secure_asset('./assets/img/logo.png') }}">
+                <h1>
+                    Seed Box
+                </h1>
+            </a>
+        </div>
     <div class="top-right">
-      <a class="links" href="{{ route('timelist.indexPersonal', $user->id) }}">{{ $user->name }}</a>
+      <a class="links" href="{{ route('timelist.indexPersonal', $user->id) }}">{{ $user->name }} >></a>
     </div>
   </header>
 
@@ -53,7 +56,7 @@
   </div>
 
 <footer>
-  <p class="footer">Seed Tech Mentor © 2021 - </p>
+  <p class="footer">Seed Box © 2021 - </p>
 </footer>
 </body>
 </html>

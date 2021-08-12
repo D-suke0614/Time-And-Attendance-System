@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Seed Tech Mentor</title>
+
+        <title>Seed Box</title>
+
         <link rel="stylesheet" href="{{ secure_asset('./assets/css/app.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -18,6 +20,15 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+            }
+            .top-left {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .logo {
+                height: 50px;
+                margin-right: 20px;
             }
 
             .flex-center {
@@ -58,11 +69,16 @@
     <body>
         <header>
             <div class="top-left">
-                <h1>
-                    Seed Tech Mentor
-                </h1>
+                <a class="top-left-button" href="{{url('/')}}">
+                    <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                    <h1>
+                        Seed Box
+                    </h1>
+                </a>
             </div>
             <div class="top-right">
+                @if (Route::has('login'))
+                @auth
                 <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
                     Work Schedule
                 </a>
@@ -72,6 +88,8 @@
                 <a class="links" target="_blank" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
                     Google Drive
                 </a>
+                @endauth
+                @endif
             <div>
         </header>
 
@@ -79,7 +97,7 @@
             <div class="flex-center position-ref">
                 <div class="content">
                     <div class="title m-b-md">
-                        打刻システム
+                        Seed Box
                     </div>
                     <div class="auth_btn">
                         {{-- <a href="{{url('/admin')}}">ADMIN</a> --}}
@@ -96,7 +114,7 @@
                             @endif -->
                         @endauth
                         @can('admin-higher')
-                            <a href="{{ route('register') }}">Register</a>
+                            <a class="links" href="{{ route('register') }}">Register</a>
                         @endcan
                     </div>
                     @endif
@@ -104,7 +122,7 @@
             </div>
         </main>
         <footer>
-            <p class="copy_right">Seed Tech Mentor © 2021 - </p>
+            <p class="copy_right">Seed Box © 2021 - </p>
         </footer>
 
     </body>
