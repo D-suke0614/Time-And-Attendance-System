@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeList</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('./assets/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('./assets/css/timeline.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('./assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('./assets/css/timeline.css') }}">
 </head>
 <body>
   <header>
     <div class="top-left">
             <a class="top-left-button" href="{{url('/')}}">
-                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                <img class="logo" src="{{ secure_asset('./assets/img/logo.png') }}">
                 <h1>
                     Seed Box
                 </h1>

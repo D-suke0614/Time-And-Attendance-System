@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('./assets/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('./assets/css/stamp.css') }}">
-    <script src="{{ asset('./assets/js/stamp.js') }}"></script>
+    <link rel="stylesheet" href="{{ secure_asset('./assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('./assets/css/stamp.css') }}">
+    <script src="{{ secure_asset('./assets/js/stamp.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <title>Seed Box Stamp</title>
 </head>
@@ -17,7 +17,7 @@
     <header>
         <div class="top-left">
             <a class="top-left-button" href="{{url('/')}}">
-                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                <img class="logo" src="{{ secure_asset('./assets/img/logo.png') }}">
                 <h1>
                     Seed Box
                 </h1>
