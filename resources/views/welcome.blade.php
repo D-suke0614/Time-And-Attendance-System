@@ -67,10 +67,12 @@
     <body>
         <header>
             <div class="top-left">
-                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
-                <h1>
-                    Seed Box
-                </h1>
+                <a class="top-left-button" href="{{url('/')}}">
+                    <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                    <h1>
+                        Seed Box
+                    </h1>
+                </a>
             </div>
             <div class="top-right">
                 @if (Route::has('login'))

@@ -60,3 +60,9 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+.top-left-button {
+  display: flex;
+  text-decoration: none;
+  color: #636b6f;
+}

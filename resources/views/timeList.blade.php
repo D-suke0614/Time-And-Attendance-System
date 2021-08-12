@@ -12,11 +12,13 @@
 <body>
   <header>
     <div class="top-left">
-      <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
-      <h1>
-          Seed Box
-      </h1>
-    </div>
+            <a class="top-left-button" href="{{url('/')}}">
+                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                <h1>
+                    Seed Box
+                </h1>
+            </a>
+        </div>
     <div class="top-right">
       <a class="links" href="{{ route('timelist.indexPersonal', $user->id) }}">{{ $user->name }} >></a>
     </div>

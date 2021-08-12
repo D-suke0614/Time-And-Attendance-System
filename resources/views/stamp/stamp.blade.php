@@ -16,10 +16,12 @@
 <body>
     <header>
         <div class="top-left">
-            <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
-            <h1>
-                Seed Box
-            </h1>
+            <a class="top-left-button" href="{{url('/')}}">
+                <img class="logo" src="{{ asset('./assets/img/logo.png') }}">
+                <h1>
+                    Seed Box
+                </h1>
+            </a>
         </div>
         <div class="top-right">
             <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
