@@ -112,7 +112,7 @@
                             @endif -->
                         @endauth
                         @can('admin-higher')
-                            <a href="{{ route('register') }}">Register</a>
+                            <a class="links" href="{{ route('register') }}">Register</a>
                         @endcan
                     </div>
                     @endif
