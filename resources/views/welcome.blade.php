@@ -73,6 +73,8 @@
                 </h1>
             </div>
             <div class="top-right">
+                @if (Route::has('login'))
+                @auth
                 <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
                     Work Schedule
                 </a>
@@ -82,6 +84,8 @@
                 <a class="links" target="_blank" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
                     Google Drive
                 </a>
+                @endauth
+                @endif
             <div>
         </header>
 
