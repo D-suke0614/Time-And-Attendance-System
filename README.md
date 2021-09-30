@@ -26,4 +26,4 @@
 例：TiemList.blade.php
  - 変数名、クラス名、関数名などは適宜動詞などを用いて、なるだけ何の変数かわかりやすい名前にする<br>
 例：getWorkTime, pushAttendanceButton
- - 共通の見た目に関しては、app.cssのものを使用する
+ - 共通の見た目に関しては、public/assets/css/app.cssのものを使用する
