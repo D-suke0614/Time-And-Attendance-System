@@ -20,7 +20,6 @@ class Work_timeController extends Controller
         if (Request::get('start')) {
             $work_time = new Work_time;
 
-
             // 退勤が押されず、勤務開始が連続して押された時の処理
             $work_time = Work_time::where('user_id', $login_user_id)->latest('created_at')->first();
             if ($work_time === null) {
@@ -65,9 +64,6 @@ class Work_timeController extends Controller
     {
         $times = Work_time::all();
         // dd($times);
-        // $dates = $times->start_time;
-        // $users = User::where('role', 0)->get();
-        // dd($users);
         $login_user_id = Auth::id();
         $user = User::where('id', $login_user_id)->first();
         return view('timeList', ['times'=>$times, 'user'=>$user]);
