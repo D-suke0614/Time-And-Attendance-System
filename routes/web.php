@@ -18,9 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/stamp', function () {
-    return view('stamp.stamp');
-});
+// Route::get('/stamp', function () {
+//     return view('stamp.stamp');
+// });
+
+// stamp画面への遷移時
+Route::get('/stamp', 'Work_timeController@screen')->name('stamp.screen')->middleware('auth');
 
 
 Route::get('/check', function () {
@@ -79,6 +82,5 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/timelist', 'Work_timeController@showTimeList')->name('timelist.index');
-Route::get('/personaltimelist/{id}', 'Work_timeController@showPersonalTimeList')->name('timelist.indexPersonal');
-
+Route::get('/timelist', 'Work_timeController@showTimeList')->name('timelist.index')->middleware('auth');
+Route::get('/personaltimelist/{id}', 'Work_timeController@showPersonalTimeList')->name('timelist.indexPersonal')->middleware('auth');

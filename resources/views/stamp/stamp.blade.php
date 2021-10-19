@@ -40,6 +40,11 @@
     </header>
 
     <main>
+        <div class="user">
+            <a href="{{ url('/home') }}">
+                {{ $user -> name }}
+            </a>
+        </div>
         <h1 class="title">
             打刻画面
         </h1>
