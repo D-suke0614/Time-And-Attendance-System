@@ -11,19 +11,33 @@
 }
 
 .stamp {
+  display: inline-block;
   padding: 25px;
+  text-decoration: none;
   font-size: 20px;
   margin-right: 20px;
-  background-color: #ffffff;
-  border: 2px solid #636b6f;
+  border-bottom: 3px solid #627295;
   border-radius: 5%;
-  color: #636b6f;
+  color: #fff;
+}
+
+.stamp_in {
+  background-color: #E7833C;
+}
+.stamp_out {
+  background-color: #283EDF;
 }
 
 .stamp:hover {
   cursor: pointer;
   color: black;
-  border: 2px solid black;
+
+}
+
+.stamp:active {
+  transform: translateY(4px);
+  border-bottom: none;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .hiddenStamp {

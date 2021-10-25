@@ -4,7 +4,6 @@
 }
 
 header {
-  height: 10vh;
   width: 100vw;
   color: #636b6f;
   font-family: 'Nunito', sans-serif;
@@ -64,5 +63,12 @@ header {
 .top-left-button {
   display: flex;
   text-decoration: none;
-  color: #636b6f;
+  color: #283EDF;
+}
+
+.right-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
