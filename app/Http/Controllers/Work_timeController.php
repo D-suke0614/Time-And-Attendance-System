@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Work_time;
 use Carbon\Carbon;
-use Request;
+// use Request;
 use Auth;
 use App\User;
 
@@ -62,11 +62,37 @@ class Work_timeController extends Controller
 
     public function showTimeList()
     {
-        $times = Work_time::all();
+        // 現在の時間を取得
+        $now = Carbon::now();
+
+        // 今月の値
+        // dd($now->month);
+
+        // 今年の値
+        // dd($now->year);
+
+        // 月初の日にちを取得
+        $dt_from = new \Carbon\Carbon();
+		$dt_from->startOfMonth();
+        // dd($dt_from);
+
+        // 月終わりの日にちを取得
+		$dt_to = new \Carbon\Carbon();
+		$dt_to->endOfMonth();
+        // dd($dt_to);
+
+        // start_timeが今月のデータを全て取得
+        $times = Work_time::whereBetween('start_time', [$dt_from, $dt_to])->get();
         // dd($times);
+
+        // ログインユーザーのidを取得
         $login_user_id = Auth::id();
+        // dd($login_user_id);
+
+        // ログインユーザーのデータを取得
         $user = User::where('id', $login_user_id)->first();
-        return view('timeList', ['times'=>$times, 'user'=>$user]);
+        
+        return view('timeList', ['times'=>$times, 'user'=>$user, 'year'=>$now->year, 'month'=>$now->month]);
     }
 
     public function showPersonalTimeList($id)
@@ -78,5 +104,27 @@ class Work_timeController extends Controller
         $user = User::where('id', $login_user_id)->first();
         // dd($user);
         return view('personalTimeList', ['times'=>$times, 'user'=>$user]);
+    }
+
+    public function search(Request $request)
+    {
+        // formから飛ばされた値を取得
+        $year = $request->year;
+        // dd($year);
+        $month = $request->month;
+        // dd($month);
+        
+        // formで検索された値から検索して値を取得
+        $times = Work_time::whereyear('start_time', $year)->wheremonth('start_time', $month)->get();
+        // dd($times);
+
+        // ログインユーザーのidを取得
+        $login_user_id = Auth::id();
+        // dd($login_user_id);
+
+        // ログインユーザーのデータを取得
+        $user = User::where('id', $login_user_id)->first();
+        
+        return view('timeList', ['times'=>$times, 'user'=>$user, 'year'=>$year, 'month'=>$month]);
     }
 }
