@@ -97,13 +97,37 @@ class Work_timeController extends Controller
 
     public function showPersonalTimeList($id)
     {
-        $times = Work_time::where('user_id', $id)->get();
+        // 現在の時間を取得
+        $now = Carbon::now();
+
+        // 今月の値
+        // dd($now->month);
+
+        // 今年の値
+        // dd($now->year);
+
+        // 月初の日にちを取得
+        $dt_from = new \Carbon\Carbon();
+		$dt_from->startOfMonth();
+        // dd($dt_from);
+
+        // 月終わりの日にちを取得
+		$dt_to = new \Carbon\Carbon();
+		$dt_to->endOfMonth();
+        // dd($dt_to);
+
+        // start_timeが今月のデータを全て取得
+        $times = Work_time::where('user_id', $id)->whereBetween('start_time', [$dt_from, $dt_to])->get();
         // dd($times);
+
+        // ログインユーザーのidを取得
         $login_user_id = Auth::id();
         // dd($login_user_id);
+
+        // ログインユーザーのデータを取得
         $user = User::where('id', $login_user_id)->first();
-        // dd($user);
-        return view('personalTimeList', ['times'=>$times, 'user'=>$user]);
+        
+        return view('personalTimeList', ['times'=>$times, 'user'=>$user, 'year'=>$now->year, 'month'=>$now->month]);
     }
 
     public function search(Request $request)
