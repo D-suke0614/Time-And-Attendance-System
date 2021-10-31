@@ -23,7 +23,7 @@
   </header>
 
   <div class="search_form_wrapper">
-    <form action="{{ route('timelist.search') }}" method = "POST" class="search_form">
+    <form action="{{ route('timelist.searchPersonal') }}" method = "POST" class="search_form">
     @csrf
       <select class="" aria-label="" name="year">
         <option value="2021" selected>{{$year}}</option>

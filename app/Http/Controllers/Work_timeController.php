@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Work_time;
 use Carbon\Carbon;
-// use Request;
+use Request;
 use Auth;
 use App\User;
 
@@ -133,9 +133,9 @@ class Work_timeController extends Controller
     public function search(Request $request)
     {
         // formから飛ばされた値を取得
-        $year = $request->year;
+        $year = Request::get('year');
         // dd($year);
-        $month = $request->month;
+        $month = Request::get('month');
         // dd($month);
         
         // formで検索された値から検索して値を取得
@@ -150,5 +150,27 @@ class Work_timeController extends Controller
         $user = User::where('id', $login_user_id)->first();
         
         return view('timeList', ['times'=>$times, 'user'=>$user, 'year'=>$year, 'month'=>$month]);
+    }
+
+    public function searchPersonal(Request $request)
+    {
+        // formから飛ばされた値を取得
+        $year = Request::get('year');
+        // dd($year);
+        $month = Request::get('month');
+        // dd($month);
+
+        // ログインユーザーのidを取得
+        $login_user_id = Auth::id();
+        // dd($login_user_id);
+        
+        // formで検索された値から検索して値を取得
+        $times = Work_time::where('user_id', $login_user_id)->whereyear('start_time', $year)->wheremonth('start_time', $month)->get();
+        // dd($times);
+
+        // ログインユーザーのデータを取得
+        $user = User::where('id', $login_user_id)->first();
+        
+        return view('personalTimeList', ['times'=>$times, 'user'=>$user, 'year'=>$year, 'month'=>$month]);
     }
 }
