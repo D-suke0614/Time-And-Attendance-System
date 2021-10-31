@@ -24,28 +24,32 @@
     </div>
   </header>
 
-  <form action="{{ route('timelist.search') }}" method = "POST">
-  @csrf
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="year">
-      <option value="2021" selected>{{$year}}</option>
-      @for ($i = 2021; $i <= $year+3; $i++)
-        <option value={{$i}}>
-          {{$i}}
-        </option>
-      @endfor
-    </select>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="month">
-      <option selected>{{$month}}</option>
-      @for ($i = 1; $i <= 12; $i++)
-        <option value={{$i}}>
-          {{$i}}
-        </option>
-      @endfor
-    </select>
-    <div class="col-12">
-      <button type="submit"  class="btn btn-primary btn-sm">検索</button>
-    </div>
-  </form>
+  <div class="search_form_wrapper">
+    <form action="{{ route('timelist.search') }}" method = "POST" class="search_form">
+    @csrf
+      <select class="" aria-label="" name="year">
+        <option value="2021" selected>{{$year}}</option>
+        @for ($i = 2021; $i <= $year+3; $i++)
+          <option value={{$i}}>
+            {{$i}}
+          </option>
+        @endfor
+      </select>
+      <span class="search_form_text">年</span>
+      <select class="" aria-label="" name="month">
+        <option selected>{{$month}}</option>
+        @for ($i = 1; $i <= 12; $i++)
+          <option value={{$i}}>
+            {{$i}}
+          </option>
+        @endfor
+      </select>
+      <span class="search_form_text">月</span>
+      <div>
+        <button type="submit"  class="btn btn-secondary">検索</button>
+      </div>
+    </form>
+  </div>
 
   <div class="container">
     <table class="table">
