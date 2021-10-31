@@ -25,21 +25,31 @@
   <div class="search_form_wrapper">
     <form action="{{ route('timelist.searchPersonal') }}" method = "POST" class="search_form">
     @csrf
-      <select class="" aria-label="" name="year">
-        <option value="2021" selected>{{$year}}</option>
+    <select class="" aria-label="" name="year">
         @for ($i = 2021; $i <= $year+3; $i++)
-          <option value={{$i}}>
-            {{$i}}
-          </option>
+          @if($i==$year)
+            <option value={{$i}} selected>
+              {{$i}}
+            </option>
+          @else
+            <option value={{$i}}>
+              {{$i}}
+            </option>
+          @endif
         @endfor
       </select>
       <span class="search_form_text">年</span>
       <select class="" aria-label="" name="month">
-        <option selected>{{$month}}</option>
         @for ($i = 1; $i <= 12; $i++)
-          <option value={{$i}}>
-            {{$i}}
-          </option>
+          @if($i==$month)
+              <option value={{$i}} selected>
+                {{$i}}
+              </option>
+            @else
+              <option value={{$i}}>
+                {{$i}}
+              </option>
+            @endif
         @endfor
       </select>
       <span class="search_form_text">月</span>
