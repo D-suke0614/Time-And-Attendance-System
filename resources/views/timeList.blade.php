@@ -24,6 +24,42 @@
     </div>
   </header>
 
+  <div class="search_form_wrapper">
+    <form action="{{ route('timelist.search') }}" method = "POST" class="search_form">
+    @csrf
+      <select class="" aria-label="" name="year">
+        @for ($i = 2021; $i <= $year+3; $i++)
+          @if($i==$year)
+            <option value={{$i}} selected>
+              {{$i}}
+            </option>
+          @else
+            <option value={{$i}}>
+              {{$i}}
+            </option>
+          @endif
+        @endfor
+      </select>
+      <span class="search_form_text">年</span>
+      <select class="" aria-label="" name="month">
+        @for ($i = 1; $i <= 12; $i++)
+          @if($i==$month)
+              <option value={{$i}} selected>
+                {{$i}}
+              </option>
+            @else
+              <option value={{$i}}>
+                {{$i}}
+              </option>
+            @endif
+        @endfor
+      </select>
+      <span class="search_form_text">月</span>
+      <div>
+        <button type="submit"  class="btn btn-secondary">検索</button>
+      </div>
+    </form>
+  </div>
 
   <div class="container">
     <table class="table">
@@ -38,23 +74,23 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($times as $time)
-        <tr>
-          <td scope="row">{{ $time->start_time->format('Y/m/d') }}</td>
-          <td>{{ $time->user->name }}</td>
-          <td>{{ $time->start_time->format('H:i:s') }}</td>
-          @if($time->end_time == null)
-            <td>退勤記録なし</td>
-          @else
-            <td>{{ $time->end_time->format('H:i:s') }}</td>
-          @endif
-          <td>{{ $time->work_time }}</td>
-        </tr>
-        @endforeach
+          @foreach ($times as $time)
+          <tr>
+            <td scope="row">{{ $time->start_time->format('Y/m/d') }}</td>
+            <td>{{ $time->user->name }}</td>
+            <td>{{ $time->start_time->format('H:i:s') }}</td>
+            @if($time->end_time == null)
+              <td>退勤記録なし</td>
+            @else
+              <td>{{ $time->end_time->format('H:i:s') }}</td>
+            @endif
+            <td>{{ $time->work_time }}</td>
+          </tr>
+          @endforeach
       </tbody>
     </table>
   </div>
-
+  
 <footer>
   <p class="footer">Seed Box © 2021 - </p>
 </footer>

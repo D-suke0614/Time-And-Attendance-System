@@ -82,3 +82,9 @@ Auth::routes();
 Route::get('/timelist', 'Work_timeController@showTimeList')->name('timelist.index');
 Route::get('/personaltimelist/{id}', 'Work_timeController@showPersonalTimeList')->name('timelist.indexPersonal');
 
+// timelineの月次表示
+Route::post('/timelist/search', 'Work_timeController@search')->name('timelist.search');
+
+// personalTimelineの月次表示
+Route::post('/timelist/searchpersonal', 'Work_timeController@searchPersonal')->name('timelist.searchPersonal');
+

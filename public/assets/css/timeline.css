@@ -10,3 +10,37 @@
   justify-content: center;
   align-items: center;
 }
+
+.pagenation_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.search_form_wrapper {
+  width: 100%;
+  padding-top: 15px;
+}
+
+.search_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #636b6f;
+}
+
+.search_form_text {
+  padding: 0 10px;
+}
+
+
+.btn-secondary {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
