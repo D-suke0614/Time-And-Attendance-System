@@ -12,6 +12,15 @@ use App\User;
 class Work_timeController extends Controller
 {
     //
+    public function screen()
+    {
+        $user = Auth::id();
+        $user = User::where('id', $user)->first();
+        // dd($user->name);
+        return view('stamp.stamp', ['user'=>$user]);
+    }
+
+
     public function store(Request $request)
     {
         $login_user_id = Auth::id();
@@ -29,7 +38,7 @@ class Work_timeController extends Controller
             } else {
                 Work_time::insert(array('start_time'=>Carbon::now(), 'created_at'=>Carbon::now(), 'user_id'=>$login_user_id));
             }
-            
+
         } elseif (Request::get('end')) {
             $work_time = Work_time::where('user_id', $login_user_id)->latest('created_at')->first();
 
