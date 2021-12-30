@@ -47,14 +47,18 @@ Route::post('/check', 'CheckController@store')->name('stamp.check');
 // Route::post('/stampEnd', 'End_timeController@store')->name('stampEnd.store');
 // Route::put('/stamp', 'Work_timeController@update')->name('stamp.update');
 
+// 勤務時間修正
+// Route::get('/startTimeModify/{id}','Work_timeController@startmodify')->name('startTimeModify');
+Route::get('/startTimeModify/{id}', 'Work_timeController@startModify')->name('start.show');
+Route::put('/startTimeModify/{id}', 'Work_timeController@startUpdate')->name('start.update');
 
-Route::get('/startTimeModify', function () {
-    return view('startTimeModify');
-});
-
-Route::get('/endTimeModify', function () {
-    return view('endTimeModify');
-});
+// 退勤時修正
+Route::get('/endTimeModify/{id}', 'Work_timeController@endModify')->name('end.show');
+Route::put('/endTimeModify/{id}', 'Work_timeController@endUpdate')->name('end.update');
+// Route::put('/startTimeModify/{id}', 'Work_timeController@startUpdate')->name('start.update');
+// Route::get('/endTimeModify', function () {
+//     return view('endTimeModify');
+// });
 
 // ログイン認証のルーティング分解
 // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

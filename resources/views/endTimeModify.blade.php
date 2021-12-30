@@ -7,15 +7,28 @@
     <title>退勤時間修正</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{{ route('end.update',['id' =>$endtime_id['id']]) }}" method="post">
+        @csrf
+        @method('put')
         <label for="">申請日時</label>
-        <p>7/17 12:30:00</p>
+        <p><?php echo date('Y年m月d日') ?></p>
         <label>名前</label>
-        <p>田中</p>
-        <label>出勤時間</label>
-        <p>12:00:00</p>
-        <label>出勤修正時間</label>
-        <p>12:01:00</p>
+        <p>{{ Auth::user()->name}}</p>
+        <label>退勤時間</label>
+        <p>
+            <?php
+                //表示用時間
+                $time_data = date('Y年m月d日 H:i', strtotime( $endtime_id->end_time ));
+                echo $time_data;
+                //value用時間
+                // $time_value = date('Y-n-jH:i', strtotime( $starttime_id->start_time ));
+                // $time_data3 = substr_replace($time_value, 'T', 10, 0);
+                
+                $time_value = substr_replace(date('Y-m-dH:i', strtotime( $endtime_id->end_time )), 'T', 10, 0);
+            ?>
+        </p>
+        <label>退勤修正時間</label>
+        <p><input type="datetime-local" name="end_time" value=<?= $time_value ?>  required></p>
         <button type="submit" value="登録">登録</button>
     </form>
 </body>
