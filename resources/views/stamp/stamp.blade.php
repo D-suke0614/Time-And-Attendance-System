@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,20 +24,34 @@
                 </h1>
             </a>
         </div>
-        <div class="top-right">
-            <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
-                Work Schedule
-            </a>
-            <a class="links" target="_blank" href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">
-                Interview Sheet
-            </a>
-            <a class="links" target="_blank" href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
-                Google Drive
-            </a>
-            <a class="links" target="_blank" href="{{ url('/timelist') }}">
-                TimeList
-            </a>
-        <div>
+        <ul class="top-right">
+            <li class="right-icons">
+                <a class="links right-icons" target="_blank"
+                    href="https://docs.google.com/spreadsheets/d/1qgb6KbSpUkDCpKv5se3BpoUkikO5_mSAOKksk3Jvv64/edit#gid=1014676512">
+                    <img src="{{ asset('./assets/img/sheets.png') }}" alt="">
+                    シフト表
+                </a>
+            </li>
+            <li class="right-icons">
+                <a class="links right-icons" target="_blank"
+                    href="https://docs.google.com/spreadsheets/d/12Jigmn7w7_NZY-f6Ob-LRY4ytIfYjrCic43un-xGilg/edit#gid=1744094400">
+                    <img src="{{ asset('./assets/img/sheets.png') }}" alt="">
+                    面談情報
+                </a>
+            </li>
+            <li class="right-icons">
+                <a class="links right-icons" target="_blank"
+                    href="https://drive.google.com/drive/u/0/folders/1HOIOsiycTuGM58CGFmFtV7FQwriWoo2b">
+                    <img src="{{ asset('./assets/img/drive.png') }}" alt="">
+                    Googleドライブ
+                </a>
+            </li>
+            <li class="right-icons">
+                <a class="links right-icons" target="_blank" href="{{ url('/timelist') }}">
+                    <img src="{{ asset('./assets/img/timeline.png') }}" alt="">
+                    出勤履歴</a>
+            </li>
+        </ul>
     </header>
 
     <main>
@@ -49,8 +64,8 @@
             打刻画面
         </h1>
         <div class="container">
-            <button class="stamp" onclick="checkWorkStart()">勤務するよー</button>
-            <button class="stamp" onclick="checkWorkEnd()">今日は終わり</button>
+            <button class="stamp stamp_in" onclick="checkWorkStart()">勤務するよー</button>
+            <button class="stamp stamp_out" onclick="checkWorkEnd()">今日は終わり</button>
             <form action="{{ route('stamp.store') }}" method="POST">
                 @csrf
                 <button id="startWork" type="submit" name="start" value="勤務開始" class="hiddenStamp"></button>
@@ -64,4 +79,5 @@
     </footer>
 
 </body>
+
 </html>
