@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Work_time;
 use Carbon\Carbon;
-use Request;
+// use Request;
 use Auth;
 use App\User;
+use GuzzleHttp\Psr7\Request as Psr7Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class Work_timeController extends Controller
 {
@@ -87,5 +89,70 @@ class Work_timeController extends Controller
         $user = User::where('id', $login_user_id)->first();
         // dd($user);
         return view('personalTimeList', ['times'=>$times, 'user'=>$user]);
+    }
+
+    // 出勤時間編集
+    function startModify($id)
+    {
+        $starttime_id = Work_time::find($id);
+        return view('startTimeModify' ,['starttime_id'=>$starttime_id]);
+    }
+
+    function startUpdate(Request $request, $id)
+    {
+        $inputs = $request->all();
+        // dd($inputs);
+        Work_time::where('id',$id)->update(['start_time'=>$inputs['start_time']]);
+
+        //idのデータ取り出し、end_time取り出し、start_time取り出し
+        $time_data = Work_time::find($id);
+        $end_time= $time_data->end_time;
+        // dd($end_time);
+        $start_time=$time_data->start_time;
+        // dd($start_time);
+        //worktimeを計算
+        $start = strtotime($start_time);
+        $end = strtotime($end_time);
+        // dd($end - $start);
+        $time = $end - $start;
+        $all_time = gmdate('H:i:s', $time);
+        Work_time::where('id',$id)->update(['work_time'=>$all_time]);
+        $login_user_id = Auth::id();
+        $message = '出勤時間の変更完了しました。';
+        
+        return redirect()->route('timelist.indexPersonal',[$login_user_id])->with('flash_message',$message );
+    }
+
+    //退勤時間修正
+    function endModify($id)
+    {
+        $endtime_id = Work_time::find($id);
+        
+        return view('endTimeModify' ,['endtime_id'=>$endtime_id]);
+    }
+
+    function endUpdate(Request $request, $id)
+    {
+        $inputs = $request->all();
+        // dd($inputs);
+        Work_time::where('id',$id)->update(['end_time'=>$inputs['end_time']]);
+
+        //idのデータ取り出し、end_time取り出し、start_time取り出し
+        $time_data = Work_time::find($id);
+        $end_time= $time_data->end_time;
+        // dd($end_time);
+        $start_time=$time_data->start_time;
+        // dd($start_time);
+        //worktimeを計算
+        $start = strtotime($start_time);
+        $end = strtotime($end_time);
+        // dd($end - $start);
+        $time = $end - $start;
+        $all_time = gmdate('H:i:s', $time);
+        Work_time::where('id',$id)->update(['work_time'=>$all_time]);
+        $login_user_id = Auth::id();
+        $message = '退勤時間の変更完了しました。';
+        
+        return redirect()->route('timelist.indexPersonal',[$login_user_id])->with('flash_message',$message );
     }
 }

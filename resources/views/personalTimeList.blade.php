@@ -22,6 +22,13 @@
     </div>
   </header>
 
+  {{-- 変更完了アラート --}}
+  @if (session('flash_message'))
+  <div class="flash_message">
+      {{ session('flash_message') }}
+  </div>
+  @endif
+
   <div class="container">
     <table class="table">
       <thead>
@@ -33,18 +40,29 @@
         </tr>
       </thead>
       <tbody>
+        {{-- <form action="{{ route('startTimeModify', $time->id) }}"> --}}
         @foreach ($times as $time)
         <tr>
           <td scope="row">{{ $time->start_time->format('Y/m/d') }}</td>
-          <td>{{ $time->start_time->format('H:i:s') }}</td>
+          <td>
+            {{ $time->start_time->format('H:i:s') }}
+            <a href="{{ route('start.show', $time->id) }}">
+              更新する
+            </a>
+          </td>
           @if($time->end_time == null)
             <td>退勤記録なし</td>
           @else
-            <td>{{ $time->end_time->format('H:i:s') }}</td>
+            <td>{{ $time->end_time->format('H:i:s') }}
+            <a href="{{ route('end.show', $time->id) }}">
+              更新する
+            </a>
+            </td>
           @endif
           <td>{{ $time->work_time }}</td>
         </tr>
         @endforeach
+        {{-- </form> --}}
       </tbody>
     </table>
   </div>
